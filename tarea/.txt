@@ -1,0 +1,25 @@
+Te explico el razonamiento detrás de añadir el plugin de Tomcat en el pom.xml:
+
+Necesidad del plugin: Para desplegar una aplicación web Java en Tomcat usando Maven, necesitamos el plugin tomcat7-maven-plugin. Este plugin proporciona los comandos necesarios para el despliegue (como mvn tomcat7:deploy).
+
+Elementos clave del plugin:
+
+<groupId>org.apache.tomcat.maven</groupId>: Identifica que es un plugin oficial de Apache Tomcat
+<artifactId>tomcat7-maven-plugin</artifactId>: El plugin específico para Tomcat 7
+<version>2.2</version>: La versión estable del plugin
+Configuración necesaria:
+
+<url>: La URL donde está el Tomcat Manager (típicamente en localhost:8080)
+<server>: Identifica el servidor en la configuración de Maven
+<path>: La ruta donde se desplegará la aplicación
+<username> y <password>: Credenciales para autenticarse con Tomcat Manager
+¿Por qué estos valores?:
+
+La URL http://localhost:8080/manager/text es la URL estándar del Tomcat Manager
+El path /roshambo coincide con el <finalName> del proyecto
+Las credenciales deben coincidir con las configuradas en tomcat-users.xml
+Este plugin es necesario porque tu proyecto:
+
+Tiene <packaging>war</packaging> (es una aplicación web)
+Necesita ser desplegado en un servidor Tomcat
+Requiere automatización del proceso de despliegue

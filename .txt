@@ -1,0 +1,14 @@
+    sudo apt install -y openjdk-11-jdk
+    sudo apt install -y tomcat9
+    sudo groupadd tomcat9
+    sudo systemctl start tomcat9
+    sudo cp /vagrant/tomcat-users.xml /etc/tomcat9/
+    sudo apt install -y tomcat9-admin
+    sudo apt-get update && sudo apt-get -y install maven
+    sudo cp /vagrant/tomcat-users.xml /etc/tomcat9/
+    mvn archetype:generate -DgroupId=org.alejandra -DartifactId=tomcat-war-deployment -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+    cd tomcat-war-deployment
+    sudo cp /vagrant/pom.xml /tomcat-war-deployment/
+    mvn tomcat7:deploy
+
+
