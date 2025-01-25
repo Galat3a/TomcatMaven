@@ -3,8 +3,8 @@ Vagrant.configure("2") do |config|
     p.vm.box = "debian/bullseye64"
     p.vm.hostname = "tomcatymaven"
     p.vm.network "forwarded_port", guest: 8080, host: 8080
-    p.vm.network "private_network", ip: "192.168.10.10"
-    p.vm.provision "shell", name: "openjdk",inline: <<-SHELL
+    p.vm.network "private_network", ip: "192.168.37.37"
+    p.vm.provision "shell", name: "openjdk", inline: <<-SHELL
       apt update
       apt install -y openjdk-11-jdk
     SHELL
@@ -28,8 +28,8 @@ Vagrant.configure("2") do |config|
                         -DarchetypeArtifactId=maven-archetype-webapp \
                         -DinteractiveMode=false
       rm /home/vagrant/test-app/pom.xml
-      cp -v /vagrant/pom1.xml /home/vagrant/test-app/
-      mv /home/vagrant/test-app/pom1.xml /home/vagrant/test-app/pom.xml
+      cp -v /vagrant/pom_1.xml /home/vagrant/test-app/
+      mv /home/vagrant/test-app/pom_1.xml /home/vagrant/test-app/pom.xml
       cd /home/vagrant/test-app
       mvn tomcat7:deploy
     SHELL
@@ -40,9 +40,9 @@ Vagrant.configure("2") do |config|
       cd rock-paper-scissors
       git checkout patch-1
       rm pom.xml
-      cp -v /vagrant/pom2.xml /home/vagrant/rock-paper-scissors/
-      mv /home/vagrant/rock-paper-scissors/pom2.xml /home/vagrant/rock-paper-scissors/pom.xml
+      cp -v /vagrant/pom_2.xml /home/vagrant/rock-paper-scissors/
+      mv /home/vagrant/rock-paper-scissors/pom_2.xml /home/vagrant/rock-paper-scissors/pom.xml
       mvn tomcat7:deploy
     SHELL
   end
-end 
+end

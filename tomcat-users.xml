@@ -13,5 +13,5 @@
   	<user username="alumno"
         	password="1234"
         	roles="admin,admin-gui,manager,manager-gui"/>
-	<user username="despliegue" password="5678" roles="manager-script"/>
+	<user username="deploy" password="1234" roles="manager-script"/>
 </tomcat-users>

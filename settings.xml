@@ -9,8 +9,8 @@
   <servers>
   	<server>
     		<id>Tomcat</id>
-    		<username>despliegue</username>
-    		<password>5678</password>
+    		<username>deploy</username>
+    		<password>1234</password>
   	</server>
   </servers>
   <mirrors>
